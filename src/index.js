@@ -1,13 +1,61 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import tagManagerArgs from './googleTagManager';
+import TagManager from 'react-gtm-module';
+import {
+  createRoutesFromElements,
+  createBrowserRouter,
+  RouterProvider,
+  Route
+} from "react-router-dom";
+
+import Contact, { loader as contactLoader, action as contactAction } from './routes/Contact';
+import Root, { loader as rootLoader, action as rootAction } from "./routes/Root";
+import Error from './routes/Error';
+import Edit, { action as editAction } from "./routes/Edit";
+import { action as destroyAction } from "./routes/Destroy";
+import Index from "./routes/Index";
+
+// TagManager.initialize(tagManagerArgs);
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={<Root />}
+      loader={rootLoader}
+      action={rootAction}
+      errorElement={<Error />}
+    >
+      <Route errorElement={<Error />}>
+        <Route index element={<Index />} />
+        <Route
+          path="contacts/:contactId"
+          element={<Contact />}
+          loader={contactLoader}
+          action={contactAction}
+        />
+        <Route
+          path="contacts/:contactId/edit"
+          element={<Edit />}
+          loader={contactLoader}
+          action={editAction}
+        />
+        <Route
+          path="contacts/:contactId/destroy"
+          action={destroyAction}
+        />
+      </Route>
+    </Route>
+  )
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
