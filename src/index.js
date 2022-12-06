@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import tagManagerArgs from './googleTagManager';
-import TagManager from 'react-gtm-module';
 import {
   createRoutesFromElements,
   createBrowserRouter,

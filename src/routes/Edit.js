@@ -1,15 +1,14 @@
+/* eslint-disable no-unused-expressions */
 import { Form, useLoaderData, redirect, useNavigate } from "react-router-dom";
 import { updateContact } from "../contacts";
 
 export async function action({ request, params }) {
   const formData = await request.formData();
-  const firstName = formData.get("first");
-  const lastName = formData.get("last");
   const updates = Object.fromEntries(formData);
-  // eslint-disable-next-line no-unused-expressions
   updates.first; // "Some"
   // eslint-disable-next-line no-unused-expressions
-  updates.last; // "Name"  await updateContact(params.contactId, updates);
+  updates.last; // "Name"  
+  await updateContact(params.contactId, updates);
   return redirect(`/contacts/${params.contactId}`);
 }
 
