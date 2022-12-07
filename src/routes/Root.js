@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData, Form, redirect, NavLink, useNavigation, useSubmit } from "react-router-dom";
+import { Outlet, useLoaderData, Form, redirect, NavLink, useNavigation, useSubmit, Link } from "react-router-dom";
 import { getContacts, createContact } from "../contacts";
 import { useEffect } from "react";
 
@@ -33,6 +33,14 @@ export default function Root() {
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
+          <div>
+            <button>
+              <Link to="/about">About</Link>
+            </button>
+            <button>
+              <Link to="/profile">Profile</Link>
+            </button>
+          </div>
           <Form id="search-form" role="search">
             <input
               id="q"
@@ -90,13 +98,14 @@ export default function Root() {
           )}
         </nav>
       </div>
+      <div>
+        {new Array(200).fill(0).map((_, i) => {
+          if (i % 20 === 0) return <div key={i}> 스크롤을 위한 텍스트</div>;
+          return <br key={i} />
+        })}
+      </div>
       <div id="detail"  className={navigation.state === "loading" ? "loading" : ""}>
         <Outlet />
-      </div>
-      <div>
-        {new Array(200).fill(0).map(value => {
-          return <div> 스크롤을 위한 텍스트</div>
-        })}
       </div>
     </>
   );

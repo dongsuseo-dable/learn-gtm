@@ -6,7 +6,7 @@ import {
   createRoutesFromElements,
   createBrowserRouter,
   RouterProvider,
-  Route
+  Route,
 } from "react-router-dom";
 
 import Contact, { loader as contactLoader, action as contactAction } from './routes/Contact';
@@ -14,6 +14,8 @@ import Root, { loader as rootLoader, action as rootAction } from "./routes/Root"
 import Error from './routes/Error';
 import Edit, { action as editAction } from "./routes/Edit";
 import { action as destroyAction } from "./routes/Destroy";
+import About from './routes/About';
+import Profile from './routes/Profile';
 
 // TagManager.initialize(tagManagerArgs);
 
@@ -43,9 +45,11 @@ const router = createBrowserRouter(
           path="contacts/:contactId/destroy"
           action={destroyAction}
         />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
     </Route>
-  )
+  ),
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
