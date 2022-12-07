@@ -93,6 +93,9 @@ export default function Root() {
       <div id="detail"  className={navigation.state === "loading" ? "loading" : ""}>
         <Outlet />
       </div>
+      {new Array(200).fill(0).map(value => {
+        return <div> 스크롤을 위한 텍스트</div>
+      })}
     </>
   );
 }
