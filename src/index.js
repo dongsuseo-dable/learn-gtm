@@ -28,7 +28,6 @@ const router = createBrowserRouter(
       errorElement={<Error />}
     >
       <Route errorElement={<Error />}>
-        <Route index element={<Index />} />
         <Route
           path="contacts/:contactId"
           element={<Contact />}
