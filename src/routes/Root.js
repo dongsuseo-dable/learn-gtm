@@ -27,20 +27,20 @@ export default function Root() {
   useEffect(() => {
     document.getElementById("q").value = q;
   }, [q]);
-
+  console.log(contacts);
   return (
     <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
-          <div>
-            <button>
-              <Link to="/about">About</Link>
-            </button>
-            <button>
-              <Link to="/profile">Profile</Link>
-            </button>
-          </div>
+          <button>
+            <Link to="/about">About</Link>
+          </button>
+          <button>
+            <Link to="/profile">Profile</Link>
+          </button>
+        </div>
+        <div>
           <Form id="search-form" role="search">
             <input
               id="q"
@@ -86,7 +86,7 @@ export default function Root() {
                         : ""
                     }
                   >
-                    {contact.name}
+                    {contact.first + contact.last || contact.id}
                   </NavLink>
                 </li>
               ))}
@@ -98,14 +98,14 @@ export default function Root() {
           )}
         </nav>
       </div>
-      <div>
-        {new Array(200).fill(0).map((_, i) => {
-          if (i % 20 === 0) return <div key={i}> 스크롤을 위한 텍스트</div>;
-          return <br key={i} />
-        })}
-      </div>
       <div id="detail"  className={navigation.state === "loading" ? "loading" : ""}>
         <Outlet />
+      </div>
+      <div>
+        {new Array(200).fill(0).map((_, i) => {
+          if (i % 50 === 0 && i > 0) return <div key={i}> 스크롤을 위한 텍스트</div>;
+          return <br key={i} />
+        })}
       </div>
     </>
   );
