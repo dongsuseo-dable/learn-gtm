@@ -14,7 +14,6 @@ import Root, { loader as rootLoader, action as rootAction } from "./routes/Root"
 import Error from './routes/Error';
 import Edit, { action as editAction } from "./routes/Edit";
 import { action as destroyAction } from "./routes/Destroy";
-import Index from "./routes/Index";
 
 // TagManager.initialize(tagManagerArgs);
 
