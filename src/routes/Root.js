@@ -86,6 +86,7 @@ export default function Root() {
                         : ""
                     }
                   >
+                    {contact.name}
                   </NavLink>
                 </li>
               ))}
