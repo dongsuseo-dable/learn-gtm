@@ -41,6 +41,11 @@ export default function Root() {
           </button>
         </div>
         <div>
+          <button class="btn" id="btn1">Button 1</button>
+          <button class="btn" id="btn2">Button 2</button>
+          <button class="btn" id="btn3">Button 3</button>
+        </div>
+        <div>
           <Form id="search-form" role="search">
             <input
               id="q"
