@@ -27,7 +27,11 @@ export default function Root() {
   useEffect(() => {
     document.getElementById("q").value = q;
   }, [q]);
-  console.log(contacts);
+  
+  const handleBtnClick = () => {
+    window.dataLayer.push({'event': 'dataLayerTest'});
+  };
+
   return (
     <>
       <div id="sidebar">
@@ -41,9 +45,9 @@ export default function Root() {
           </button>
         </div>
         <div>
-          <button class="btn" id="btn1">Button 1</button>
-          <button class="btn" id="btn2">Button 2</button>
-          <button class="btn" id="btn3">Button 3</button>
+          <button class="btn" id="btn1" onClick={handleBtnClick}>Button 1</button>
+          <button class="btn" id="btn2" onClick={handleBtnClick}>Button 2</button>
+          <button class="btn" id="btn3" onClick={handleBtnClick}>Button 3</button>
         </div>
         <div>
           <Form id="search-form" role="search">
