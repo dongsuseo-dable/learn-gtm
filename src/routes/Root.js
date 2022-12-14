@@ -29,7 +29,10 @@ export default function Root() {
   }, [q]);
   
   const handleBtnClick = () => {
-    window.dataLayer.push({'event': 'dataLayerTest'});
+    window.dataLayer.push({
+      'event': 'dataLayerTest',
+      'customProperty': 777,
+    });
   };
 
   return (
