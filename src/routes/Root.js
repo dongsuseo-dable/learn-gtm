@@ -35,11 +35,24 @@ export default function Root() {
     });
   };
 
+  const handleConfirmClick = () => {
+    const result = window.confirm('confirm test');
+
+    if (result) {
+      window.alert('확인 선택');
+    } else {
+      window.alert('취소 선택');
+    }
+  };
+
   return (
     <>
       <div id="sidebar">
         <h1>React Router Contacts</h1>
         <div>
+          <button onClick={handleConfirmClick}>
+            ConfirmTestButton
+          </button>
           <button>
             <Link to="/about">About</Link>
           </button>
