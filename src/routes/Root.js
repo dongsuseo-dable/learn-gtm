@@ -28,10 +28,11 @@ export default function Root() {
     document.getElementById("q").value = q;
   }, [q]);
   
-  const handleBtnClick = () => {
+  const handleBtnClick = (e) => {
+    const target = e.target.id;
     window.dataLayer.push({
       'event': 'dataLayerTest',
-      'customProperty': 777,
+      'customProperty': target,
     });
   };
 
@@ -61,9 +62,9 @@ export default function Root() {
           </button>
         </div>
         <div>
-          <button class="btn" id="btn1" onClick={handleBtnClick}>Button 1</button>
-          <button class="btn" id="btn2" onClick={handleBtnClick}>Button 2</button>
-          <button class="btn" id="btn3" onClick={handleBtnClick}>Button 3</button>
+          <button className="btn" id="btn2" onClick={handleBtnClick}>Button 2</button>
+          <button className="btn" id="btn1" onClick={handleBtnClick}>Button 1</button>
+          <button className="btn" id="btn3" onClick={handleBtnClick}>Button 3</button>
         </div>
         <div>
           <Form id="search-form" role="search">
